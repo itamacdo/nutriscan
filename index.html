@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScan | Analisador de Rótulos Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar hidden" id="game-hud">
+        <div class="nav-content">
+            <div class="logo">Nutri<span>Scan</span></div>
+            <div class="game-info">
+                <div class="badge">Pontuação: <span id="score">0</span></div>
+                <div class="phase-indicator">Questão <span id="current-phase-num">1</span> de 8</div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <section id="home-screen" class="home-area animate-up">
+            <div class="card-main central-card">
+                <div class="logo-large">Nutri<span>Scan</span></div>
+                <p class="subtitle">Educação Nutricional Digital</p>
+                
+                <div class="project-description">
+                    <h2>Sobre o Projeto</h2>
+                    <p>O NutriScan é uma ferramenta acadêmica desenvolvida para capacitar a interpretação técnica de rótulos e tabelas nutricionais, promovendo a autonomia alimentar através da tecnologia.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Objetivo</strong>
+                            <p>Simplificar a leitura de componentes químicos e dados numéricos para a saúde pública.</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Metodologia</strong>
+                            <p>Gamificação aplicada ao ensino da Ciência da Nutrição em ambiente digital.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-start" class="btn-primary">INICIAR MARATONA</button>
+            </div>
+        </section>
+
+        <div id="game-arena" class="hidden">
+            <div class="grid-images">
+                <div class="img-box card-main">
+                    <span class="tag">PRODUTO</span>
+                    <img id="img-frente" src="" alt="Frente do produto">
+                </div>
+                
+                <div class="img-box card-main label-container">
+                    <span class="tag target">RÓTULO / TABELA</span>
+                    <div id="laser-line" class="laser-line"></div>
+                    <img id="img-rotulo" src="" alt="Rótulo nutricional">
+                </div>
+            </div>
+
+            <section id="mission-panel" class="card-main animate-up">
+                <div class="mission-text">
+                    <h2 id="phase-title">Processando</h2>
+                    <p id="phase-instruction">Aguarde a análise dos dados ópticos.</p>
+                </div>
+                
+                <div id="ingredients-grid" class="pills-grid"></div>
+
+                <div id="feedback-area" class="feedback-panel">
+                    <div id="feedback-text"></div>
+                    <button id="btn-next-question" class="btn-next hidden">PRÓXIMO DESAFIO</button>
+                </div>
+            </section>
+
+            <div class="nav-controls">
+                <button id="btn-home" class="btn-nav">Menu Inicial</button>
+                <div class="step-controls">
+                    <button id="btn-prev" class="btn-nav">Anterior</button>
+                    <button id="btn-next-skip" class="btn-nav">Pular</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="results-screen" class="hidden animate-up">
+            <div class="card-main results-card">
+                <header class="results-header">
+                    <h2>Análise Concluída</h2>
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <span id="final-score-val">0</span>
+                            <small>pontos</small>
+                        </div>
+                    </div>
+                    <p id="rank-message">Processando classificação técnica...</p>
+                </header>
+
+                <div class="educational-guide">
+                    <h3>Guia Prático de Leitura</h3>
+                    <div class="guide-container">
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">01</span><h4>Hierarquia</h4></div>
+                            <p>Os ingredientes aparecem em ordem decrescente. O primeiro da lista é o que está em maior quantidade.</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">02</span><h4>Açúcares</h4><span class="alert-tag">Atenção</span></div>
+                            <p>Nomes terminados em -ose ou -ina (maltodextrina) indicam carboidratos processados.</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">03</span><h4>Sódio e Porção</h4></div>
+                            <p>Sempre verifique se os valores se referem à embalagem inteira ou a apenas uma unidade/porção.</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">04</span><h4>Processamento</h4></div>
+                            <p>Listas de ingredientes curtas e com nomes conhecidos geralmente indicam produtos mais saudáveis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="location.reload()" class="btn-primary">RECOMEÇAR</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-simple">
+        <p>Faculdade Uninassau | Juazeiro do Norte - CE | 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
