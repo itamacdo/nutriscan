@@ -19,13 +19,13 @@ O projeto utiliza gamificação para transformar a leitura de componentes quími
 - **JavaScript (Vanilla):** Lógica do jogo e manipulação do DOM.
 - **Canvas Confetti:** Biblioteca para efeitos de celebração nos acertos.
 
-## 📂 Como executar o projeto
+## Como executar o projeto
 
 1. Faça o download ou clone este repositório.
 2. Certifique-se de que a pasta `assets` contém as imagens dos produtos.
 3. Abra o arquivo `index.html` em qualquer navegador moderno.
 
-## 📝 Autor
+## Autor
 
 Desenvolvido por **Maria Ita Ferreira de Macêdo**.
 
