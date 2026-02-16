@@ -16,6 +16,15 @@ const resultsScreen = document.getElementById('results-screen'), hud = document.
 const laser = document.getElementById('laser-line'), grid = document.getElementById('ingredients-grid');
 const feedbackBox = document.getElementById('feedback-text'), btnNext = document.getElementById('btn-next-question');
 
+// Função para embaralhar qualquer array (Fisher-Yates)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 document.getElementById('btn-start').onclick = () => { homeScreen.classList.add('hidden'); gameArena.classList.remove('hidden'); hud.classList.remove('hidden'); carregarDesafio(); };
 document.getElementById('btn-prev').onclick = () => { if(index > 0) { index--; carregarDesafio(); } };
 document.getElementById('btn-next-skip').onclick = () => { if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } };
@@ -28,7 +37,7 @@ function carregarDesafio() {
     const d = desafios[index];
     document.getElementById('current-phase-num').textContent = index + 1;
     document.getElementById('phase-title').textContent = "Escaneando";
-    document.getElementById('phase-instruction').textContent = "Identificando dados nutricionais.";
+    document.getElementById('phase-instruction').textContent = "Lendo dados da embalagem...";
     grid.innerHTML = ''; feedbackBox.textContent = "Iniciando leitura óptica..."; 
     document.getElementById('img-frente').src = d.frente; document.getElementById('img-rotulo').src = d.rotulo;
     laser.classList.add('scanning');
@@ -39,15 +48,19 @@ function montarPergunta(d) {
     document.getElementById('phase-title').textContent = d.titulo;
     document.getElementById('phase-instruction').textContent = d.missao;
     feedbackBox.textContent = ""; grid.innerHTML = '';
-    d.opcoes.forEach(opt => {
+    
+    // EMBARALHAR as opções antes de mostrar na tela
+    const opcoesMisturadas = shuffleArray([...d.opcoes]);
+
+    opcoesMisturadas.forEach(opt => {
         const p = document.createElement('div'); p.className = 'pill animate-up'; p.textContent = opt;
         p.onclick = () => {
             if (respondido) return; respondido = true;
             if (d.alvos.includes(opt)) {
                 p.classList.add('correct'); score += 100; document.getElementById('score').textContent = score;
-                feedbackBox.innerHTML = `<strong>Correto.</strong> ${d.explica}`;
+                feedbackBox.innerHTML = `<strong>Acertou!</strong> ${d.explica}`;
                 confetti({ particleCount: 30, spread: 50, origin: { y: 0.8 }, colors: ['#A8DADC', '#B5EAD7'] });
-            } else { p.classList.add('wrong'); feedbackBox.innerHTML = `<strong>Incorreto.</strong> ${d.explica}`; }
+            } else { p.classList.add('wrong'); feedbackBox.innerHTML = `<strong>Quase lá!</strong> ${d.explica}`; }
             btnNext.classList.remove('hidden');
         };
         grid.appendChild(p);
@@ -58,7 +71,7 @@ function finalizar() {
     gameArena.classList.add('hidden'); hud.classList.add('hidden'); resultsScreen.classList.remove('hidden');
     document.getElementById('final-score-val').textContent = score;
     const rankMsg = document.getElementById('rank-message');
-    if (score >= 800) rankMsg.textContent = "Excelente! Você é um mestre dos rótulos.";
-    else if (score >= 500) rankMsg.textContent = "Muito bom! Você possui conhecimento crítico.";
-    else rankMsg.textContent = "Continue praticando para dominar a análise técnica.";
+    if (score >= 800) rankMsg.textContent = "Incrível! Você já sabe escolher o que é melhor para sua saúde.";
+    else if (score >= 500) rankMsg.textContent = "Bom trabalho! Você está no caminho certo para uma vida mais saudável.";
+    else rankMsg.textContent = "Continue praticando! Ler as tabelas fica mais fácil com o tempo.";
 }
