@@ -36,12 +36,113 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 .project-description { text-align: left; background: #F8FAFC; padding: 30px; border-radius: 24px; margin: 30px 0; }
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; border-top: 1px solid #E2E8F0; padding-top: 20px; }
 
+/* --- PERFIL DA DESENVOLVEDORA --- */
+.developer-profile {
+    background: #F8FAFC; 
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px 0;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.dev-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.dev-avatar img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary); 
+}
+
+.dev-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #64748B;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.dev-header-text h3 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin: 2px 0;
+    line-height: 1.2;
+}
+
+.dev-role {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* CAIXA DE SOBRE MIM */
+.dev-about-box {
+    background: #FFFFFF;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary); 
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.dev-about-box h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #94A3B8;
+    margin-bottom: 5px;
+}
+
+.dev-about-box p {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* BOTÕES SOCIAIS */
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--secondary);
+    background: #FFF;
+    border: 1px solid #CBD5E1;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: 0.2s all;
+}
+
+.social-btn:hover {
+    background: var(--primary);
+    color: #FFF;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
 /* ÁREA DAS IMAGENS (GRID) */
 .grid-images { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
 
 .img-box { 
     position: relative; 
-    height: 320px; /* Altura padrão para Desktop */
+    height: 320px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -89,137 +190,42 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 
 /* --- AJUSTES ESPECÍFICOS PARA CELULAR --- */
 @media (max-width: 650px) { 
-    /* Força 2 colunas no celular */
+    /* Ajuste da logo */
+    .logo-large { font-size: 2.5rem; } 
+
+    /* Ajuste do Perfil da Desenvolvedora */
+    .dev-header { flex-direction: column; text-align: center; gap: 10px; }
+    .developer-profile { text-align: center; padding: 20px; }
+    .dev-about-box { text-align: left; } 
+    .social-links { justify-content: center; }
+
+    /* Ajuste das Imagens (2 colunas curtas) */
     .grid-images { 
         grid-template-columns: 1fr 1fr; 
         gap: 10px; 
         margin-bottom: 10px; 
     }
-
-    /* Reduz drasticamente a altura das caixas de imagem */
     .img-box { 
-        height: 150px; /* Bem menor */
+        height: 150px; 
         border-radius: 16px;
     }
-
-    /* Reduz o tamanho da tag "Produto" e "Rótulo" */
     .tag { 
         top: 8px; left: 8px; 
         font-size: 0.45rem; 
         padding: 4px 8px; 
     }
 
-    /* Reduz o padding (respiro) de todos os cards */
+    /* Reduz o padding dos cards */
     .card-main { 
         padding: 20px; 
         border-radius: 20px; 
         margin-bottom: 15px;
     }
 
-    /* Opções de resposta menores e mais compactas */
+    /* Ajuste dos botões de resposta */
     .pills-grid { gap: 8px; margin: 15px 0; }
-    .pill { padding: 10px 15px; font-size: 0.85rem; width: 48%; text-align: center; } /* Botões dividem a linha */
+    .pill { padding: 10px 15px; font-size: 0.85rem; width: 48%; text-align: center; } 
 
-    /* Outros ajustes */
+    /* Ajuste de grids que viram 1 coluna */
     .guide-container, .info-grid { grid-template-columns: 1fr; } 
-    .logo-large { font-size: 2.5rem; } 
-}
-
-/* --- PERFIL DA DESENVOLVEDORA --- */
-.developer-profile {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #F1F5F9; /* Fundo suave para destacar */
-    padding: 20px;
-    border-radius: 24px;
-    margin-bottom: 30px;
-    text-align: left;
-    border: 1px solid #E2E8F0;
-}
-
-.dev-avatar {
-    flex-shrink: 0;
-}
-
-.dev-avatar img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary); /* Borda na cor do tema */
-}
-
-.dev-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.dev-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    color: #64748B;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-}
-
-.dev-info h3 {
-    font-size: 1rem;
-    color: var(--secondary);
-    margin-bottom: 2px;
-}
-
-.dev-role {
-    font-size: 0.75rem;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.dev-bio {
-    font-size: 0.8rem;
-    color: #475569;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
-}
-
-.social-btn {
-    text-decoration: none;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--secondary);
-    border: 1px solid var(--border);
-    padding: 4px 12px;
-    border-radius: 20px;
-    background: #FFF;
-    transition: 0.2s;
-}
-
-.social-btn:hover {
-    background: var(--primary);
-    color: #FFF;
-    border-color: var(--primary);
-}
-
-@media (max-width: 650px) {
-    .developer-profile {
-        flex-direction: column;
-        text-align: center;
-        padding: 25px;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .dev-avatar img {
-        width: 90px;
-        height: 90px;
-    }
 }
