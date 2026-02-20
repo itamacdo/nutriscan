@@ -1,4 +1,3 @@
-// 1. DADOS DO DESAFIO (Mantenha sempre esta estrutura)
 const desafios = [
     { prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", titulo: "YoPRO: Adoçantes", missao: "Qual edulcorante substitui o açúcar neste produto?", alvos: ["Sucralose"], opcoes: ["Mel", "Sucralose", "Açúcar mascavo", "Glicose"], explica: "A Sucralose é um edulcorante que confere doçura sem as calorias do açúcar comum." },
     { prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", titulo: "YoPRO: Textura", missao: "Qual ingrediente garante a consistência densa?", alvos: ["Carragena"], opcoes: ["Farinha", "Carragena", "Amido", "Ovo"], explica: "A Carragena é utilizada para estabilizar e espessar bebidas lácteas." },
@@ -10,22 +9,14 @@ const desafios = [
     { prod: "Iogurte Grego Vigor", frente: "assets/grego-frente.png", rotulo: "assets/grego-rotulo.png", titulo: "Grego: Carboidratos", missao: "Neste produto, os carboidratos totais derivam de:", alvos: ["Açúcares e Lactose"], opcoes: ["Fibras", "Açúcares e Lactose", "Proteína", "Minerais"], explica: "Engloba a lactose do leite e açúcares adicionados para sabor." }
 ];
 
-// 2. VARIÁVEIS DE ESTADO
 let index = 0, score = 0, respondido = false;
 
-// 3. SELEÇÃO DE ELEMENTOS DOM
 const homeScreen = document.getElementById('home-screen'), gameArena = document.getElementById('game-arena');
 const resultsScreen = document.getElementById('results-screen'), hud = document.getElementById('game-hud');
 const laser = document.getElementById('laser-line'), grid = document.getElementById('ingredients-grid');
 const feedbackBox = document.getElementById('feedback-text'), btnNext = document.getElementById('btn-next-question');
 
-// Elementos novos para o Toggle Mobile
-const btnViewFrente = document.getElementById('btn-view-frente');
-const btnViewRotulo = document.getElementById('btn-view-rotulo');
-const boxFrente = document.getElementById('box-frente');
-const boxRotulo = document.getElementById('box-rotulo');
-
-// 4. FUNÇÕES DE UTILIDADE
+// Função para embaralhar as alternativas
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -34,61 +25,28 @@ function shuffleArray(array) {
     return array;
 }
 
-// Alterna a visão entre Produto e Tabela (Útil para Mobile)
-function switchMobileView(view) {
-    if (view === 'frente') {
-        boxFrente.classList.add('active');
-        boxRotulo.classList.remove('active');
-        btnViewFrente.classList.add('active');
-        btnViewRotulo.classList.remove('active');
-    } else {
-        boxFrente.classList.remove('active');
-        boxRotulo.classList.add('active');
-        btnViewFrente.classList.remove('active');
-        btnViewRotulo.classList.add('active');
-    }
-}
-
-// 5. LÓGICA DO JOGO
-document.getElementById('btn-start').onclick = () => { 
-    homeScreen.classList.add('hidden'); 
-    gameArena.classList.remove('hidden'); 
-    hud.classList.remove('hidden'); 
-    carregarDesafio(); 
-};
-
+document.getElementById('btn-start').onclick = () => { homeScreen.classList.add('hidden'); gameArena.classList.remove('hidden'); hud.classList.remove('hidden'); carregarDesafio(); };
 document.getElementById('btn-prev').onclick = () => { if(index > 0) { index--; carregarDesafio(); } };
 document.getElementById('btn-next-skip').onclick = () => { if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } };
 document.getElementById('btn-home').onclick = () => { location.reload(); };
-
-// Controles do Mobile Toggle
-btnViewFrente.onclick = () => switchMobileView('frente');
-btnViewRotulo.onclick = () => switchMobileView('rotulo');
 
 btnNext.onclick = () => { if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } };
 
 function carregarDesafio() {
     respondido = false; 
     btnNext.classList.add('hidden');
-    switchMobileView('frente'); // Sempre começa mostrando a frente do produto
-    
     const d = desafios[index];
     document.getElementById('current-phase-num').textContent = index + 1;
     document.getElementById('phase-title').textContent = "Escaneando";
     document.getElementById('phase-instruction').textContent = "Identificando dados da embalagem...";
     grid.innerHTML = ''; 
     feedbackBox.textContent = "Iniciando leitura óptica..."; 
-    
     document.getElementById('img-frente').src = d.frente; 
     document.getElementById('img-rotulo').src = d.rotulo;
-    
     laser.classList.add('scanning');
     
-    // Simula o tempo de "scan"
     setTimeout(() => { 
         laser.classList.remove('scanning'); 
-        // No mobile, após o scan, muda automaticamente para a tabela para ajudar o usuário
-        if(window.innerWidth <= 650) switchMobileView('rotulo');
         montarPergunta(d); 
     }, 1500);
 }
@@ -99,7 +57,6 @@ function montarPergunta(d) {
     feedbackBox.textContent = ""; 
     grid.innerHTML = '';
     
-    // Embaralha as opções para não ficarem sempre na mesma ordem
     const opcoesMisturadas = shuffleArray([...d.opcoes]);
 
     opcoesMisturadas.forEach(opt => {
@@ -109,7 +66,6 @@ function montarPergunta(d) {
         p.onclick = () => {
             if (respondido) return; 
             respondido = true;
-            
             if (d.alvos.includes(opt)) {
                 p.classList.add('correct'); 
                 score += 100; 
@@ -131,7 +87,6 @@ function finalizar() {
     hud.classList.add('hidden'); 
     resultsScreen.classList.remove('hidden');
     document.getElementById('final-score-val').textContent = score;
-    
     const rankMsg = document.getElementById('rank-message');
     if (score >= 800) rankMsg.textContent = "Incrível! Você tem um olhar clínico para rótulos.";
     else if (score >= 500) rankMsg.textContent = "Muito bem! Você já consegue fazer escolhas mais conscientes.";
