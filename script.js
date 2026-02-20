@@ -86,7 +86,11 @@ function finalizar() {
     gameArena.classList.add('hidden'); 
     hud.classList.add('hidden'); 
     resultsScreen.classList.remove('hidden');
-    document.getElementById('final-score-val').textContent = score;
+    
+    // ALTERADO AQUI: Mostra a pontuação sobre o total (Ex: 700/800)
+    const maxScore = desafios.length * 100;
+    document.getElementById('final-score-val').textContent = `${score}/${maxScore}`;
+    
     const rankMsg = document.getElementById('rank-message');
     if (score >= 800) rankMsg.textContent = "Incrível! Você tem um olhar clínico para rótulos.";
     else if (score >= 500) rankMsg.textContent = "Muito bem! Você já consegue fazer escolhas mais conscientes.";
