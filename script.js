@@ -87,7 +87,7 @@ function finalizar() {
     hud.classList.add('hidden'); 
     resultsScreen.classList.remove('hidden');
     
-    // ALTERADO AQUI: Mostra a pontuação sobre o total (Ex: 700/800)
+    // Cálculo da pontuação final (Ex: 700/800)
     const maxScore = desafios.length * 100;
     document.getElementById('final-score-val').textContent = `${score}/${maxScore}`;
     
