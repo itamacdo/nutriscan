@@ -124,3 +124,102 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     .guide-container, .info-grid { grid-template-columns: 1fr; } 
     .logo-large { font-size: 2.5rem; } 
 }
+
+/* --- PERFIL DA DESENVOLVEDORA --- */
+.developer-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #F1F5F9; /* Fundo suave para destacar */
+    padding: 20px;
+    border-radius: 24px;
+    margin-bottom: 30px;
+    text-align: left;
+    border: 1px solid #E2E8F0;
+}
+
+.dev-avatar {
+    flex-shrink: 0;
+}
+
+.dev-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary); /* Borda na cor do tema */
+}
+
+.dev-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #64748B;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.dev-info h3 {
+    font-size: 1rem;
+    color: var(--secondary);
+    margin-bottom: 2px;
+}
+
+.dev-role {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.dev-bio {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-btn {
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #FFF;
+    transition: 0.2s;
+}
+
+.social-btn:hover {
+    background: var(--primary);
+    color: #FFF;
+    border-color: var(--primary);
+}
+
+@media (max-width: 650px) {
+    .developer-profile {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .dev-avatar img {
+        width: 90px;
+        height: 90px;
+    }
+}
