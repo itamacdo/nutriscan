@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScan | Analisador de Rótulos Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar hidden" id="game-hud">
+        <div class="nav-content">
+            <div class="logo">Nutri<span>Scan</span></div>
+            <div class="game-info">
+                <div class="badge">Pontuação: <span id="score">0</span></div>
+                <div class="phase-indicator">Questão <span id="current-phase-num">1</span> de 8</div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <section id="home-screen" class="home-area animate-up">
+            <div class="home-layout">
+                
+                <div class="card-main hero-card text-center">
+                    <div class="logo-large">Nutri<span>Scan</span></div>
+                    <p class="subtitle">Educação Nutricional Digital</p>
+                    <p class="hero-text">Entenda o que os números das embalagens dizem sobre a sua saúde de um jeito rápido, visual e divertido.</p>
+                    <button id="btn-start" class="btn-primary">INICIAR MARATONA</button>
+                </div>
+
+                <div class="card-main info-card">
+                    <div class="info-row">
+                        <div class="info-item">
+                            <span class="info-icon"></span>
+                            <div>
+                                <strong>O que você aprende?</strong>
+                                <p>A identificar gorduras, açúcares e excesso de sal em segundos.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"></span>
+                            <div>
+                                <strong>Como funciona?</strong>
+                                <p>Escaneie os produtos, responda os desafios e ganhe pontos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-main dev-card">
+                    
+                    <div class="dev-profile-block">
+                        <div class="dev-header">
+                            <img src="assets/perfil.png" alt="Foto de Maria Ita" class="dev-avatar-img">
+                            <div class="dev-titles">
+                                <span class="dev-label">Desenvolvedora Principal</span>
+                                <h3>Maria Ita Macêdo</h3>
+                                <p class="dev-role">Analista de Dados & Acadêmica de Nutrição</p>
+                            </div>
+                        </div>
+                        <p class="dev-bio-clean">
+                            Unindo a precisão da Análise de Dados com a ciência da Nutrição. O NutriScan nasceu do propósito de transformar tabelas complexas em informação visual e acessível, promovendo autonomia alimentar.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://lattes.cnpq.br/4731132391323602" target="_blank" class="social-btn">Lattes</a>
+                            <a href="https://www.linkedin.com/in/itamacdo" target="_blank" class="social-btn">LinkedIn</a>
+                            <a href="https://github.com/itamacdo" target="_blank" class="social-btn">GitHub</a>
+
+                        </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 25px 0;">
+
+                    <div class="dev-profile-block">
+                        <div class="dev-header">
+                            <img src="assets/vitoria.png" alt="Foto de Vitória Antunes" class="dev-avatar-img">
+                            <div class="dev-titles">
+                                <span class="dev-label">Colaboradora de Pesquisa</span>
+                                <h3>Vitória Antunes</h3>
+                                <p class="dev-role">Acadêmica de Nutrição</p>
+                            </div>
+                        </div>
+                        <p class="dev-bio-clean">
+                            Entusiasta da nutrição, atuou na pesquisa de dados e curadoria de informações para a estruturação do manual NutriScan. Tem como principais áreas de interesse e estudo a Nutrição Clínica e Materno-Infantil.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://lattes.cnpq.br/3131423884008069" target="_blank" class="social-btn">Lattes</a>
+                        </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 25px 0;">
+
+                    <div class="dev-profile-block">
+                        <div class="dev-header">
+                            <img src="assets/conceicao.png" alt="Foto de Conceição Gomes" class="dev-avatar-img">
+                            <div class="dev-titles">
+                                <span class="dev-label">Colaboradora de Pesquisa</span>
+                                <h3>Conceição Gomes</h3>
+                                <p class="dev-role">Acadêmica de Nutrição</p>
+                            </div>
+                        </div>
+                        <p class="dev-bio-clean">
+                            Entusiasta da área da saúde, colaborou no levantamento comparativo de rótulos e produtos para o manual. Direciona seus estudos e interesses para as áreas de Pesquisa, Nutrição Hospitalar e Oncológica.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" target="_blank" class="social-btn">Lattes</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <div id="game-arena" class="hidden">
+            <div class="grid-images">
+                <div class="img-box card-main">
+                    <span class="tag">PRODUTO</span>
+                    <img id="img-frente" src="" alt="Frente do produto">
+                </div>
+                
+                <div class="img-box card-main label-container">
+                    <span class="tag target">RÓTULO / TABELA</span>
+                    <div id="laser-line" class="laser-line"></div>
+                    <img id="img-rotulo" src="" alt="Rótulo nutricional">
+                </div>
+            </div>
+
+            <section id="mission-panel" class="card-main animate-up">
+                <div class="mission-text">
+                    <h2 id="phase-title">Processando</h2>
+                    <p id="phase-instruction">Aguarde a análise dos dados ópticos.</p>
+                </div>
+                
+                <div id="ingredients-grid" class="pills-grid"></div>
+
+                <div id="feedback-area" class="feedback-panel">
+                    <div id="feedback-text"></div>
+                    <button id="btn-next-question" class="btn-next hidden">PRÓXIMO DESAFIO</button>
+                </div>
+            </section>
+
+            <div class="nav-controls">
+                <button id="btn-home" class="btn-nav">Menu Inicial</button>
+                <div class="step-controls">
+                    <button id="btn-prev" class="btn-nav">Anterior</button>
+                    <button id="btn-next-skip" class="btn-nav">Pular</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="results-screen" class="hidden animate-up">
+            <div class="card-main results-card">
+                <header class="results-header">
+                    <h2>Análise Concluída</h2>
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <span id="final-score-val">0</span>
+                            <small>pontos</small>
+                        </div>
+                    </div>
+                    <p id="rank-message">Verificando seu desempenho...</p>
+                </header>
+
+                <div class="educational-guide">
+                    <h3>Guia Rápido: Como escolher melhor</h3>
+                    <div class="guide-container">
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">01</span><h4>Cuidado com a Porção</h4></div>
+                            <p>Os números da tabela (calorias, sal) geralmente são para uma pequena parte, não para o pacote inteiro. Olhe sempre o peso em gramas!</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">02</span><h4>A Regra do %VD</h4><span class="alert-tag">Dica de Ouro</span></div>
+                            <p>Se um nutriente marca 5% ou menos, é pouco. Se marca 20% ou mais, é muito. Use isso para evitar muito sal ou açúcar.</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">03</span><h4>Gorduras Ruins</h4></div>
+                            <p>Tente manter as "Gorduras Saturadas" baixas e, se possível, escolha produtos com "Zero Gordura Trans".</p>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-header"><span class="step-num">04</span><h4>Fibras: Suas Amigas</h4></div>
+                            <p>Quanto mais fibras, melhor! Elas ajudam a dar saciedade e fazem o intestino funcionar direitinho.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-main conclusion-card" style="text-align: left; padding: 25px; border-left: 4px solid var(--primary); margin: 25px 0;">
+                    <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 10px;">Autonomia Alimentar</h3>
+                    <p style="font-size: 0.85rem; color: #475569; line-height: 1.6;">
+                        A análise estrutural de rótulos neutraliza o viés mercadológico das embalagens frontais. O domínio sobre a lista de ingredientes e a tabela nutricional devolve ao consumidor a capacidade de decisão baseada em dados técnicos. A aplicação dos critérios desenvolvidos no NutriScan e no manual complementar deve ocorrer no momento da compra. A substituição consciente de alimentos ultraprocessados por opções de composição limpa é uma escolha fundamentada em saciedade, densidade nutritiva e viabilidade econômica a longo prazo.
+                    </p>
+                </div>
+
+                <div class="ebook-promo card-main">
+                    <h3>Manual NutriScan</h3>
+                    <p>Acesse o e-book com o guia prático de substituições e leitura avançada de rótulos.</p>
+                    <div class="qr-container">
+                        <img src="assets/MANUAL_NUTRISCAN.png" alt="QR Code E-book" class="qr-code">
+                        <a href="https://drive.google.com/file/d/1tZx4EpBm7dwSPt5h76UWPzkPaNMOb4YF/view?usp=drive_link" target="_blank" class="btn-secondary">BAIXAR E-BOOK</a>
+                    </div>
+                </div>
+
+                <button onclick="location.reload()" class="btn-primary">JOGAR NOVAMENTE</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-simple">
+        <p>Faculdade Uninassau | Juazeiro do Norte - CE | 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

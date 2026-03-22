@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "nome": "Iogurte Zero Açúcar",
+    "imagem": "assets/iogurte.png",
+    "ingredientes": [
+      {"nome": "Leite", "info": "Fonte de cálcio e proteínas."},
+      {"nome": "Maltodextrina", "alerta": true, "explicação": "Açúcar escondido! Tem alto índice glicêmico."},
+      {"nome": "Sucralose", "alerta": true, "explicação": "Adoçante artificial que pode afetar a microbiota."}
+    ]
+  }
+]
