@@ -16,7 +16,6 @@ const resultsScreen = document.getElementById('results-screen'), hud = document.
 const laser = document.getElementById('laser-line'), grid = document.getElementById('ingredients-grid');
 const feedbackBox = document.getElementById('feedback-text'), btnNext = document.getElementById('btn-next-question');
 
-// Função para embaralhar as alternativas
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -87,7 +86,6 @@ function finalizar() {
     hud.classList.add('hidden'); 
     resultsScreen.classList.remove('hidden');
     
-    // Cálculo da pontuação final (Ex: 700/800)
     const maxScore = desafios.length * 100;
     document.getElementById('final-score-val').textContent = `${score}/${maxScore}`;
     
