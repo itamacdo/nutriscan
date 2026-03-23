@@ -15,7 +15,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 .hidden { display: none !important; }
 .text-center { text-align: center; }
 
-/* NAVBAR */
 .navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
 .nav-content { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
 .logo { font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
@@ -25,7 +24,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 
 .container { max-width: 850px; margin: 0 auto; padding: 30px 20px; }
 
-/* CARDS GERAIS */
 .card-main { 
     background: var(--white); 
     border-radius: var(--radius-lg); 
@@ -35,27 +33,21 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     box-shadow: 0 8px 30px rgba(0,0,0,0.03); 
 }
 
-/* =========================================================
-   TELA INICIAL (LAYOUT MODULAR)
-   ========================================================= */
 .home-area { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
 .home-layout { display: flex; flex-direction: column; gap: 20px; max-width: 550px; width: 100%; }
 
-/* Bloco 1: Hero */
 .hero-card { padding: 40px 30px; border: 2px solid var(--primary); }
 .logo-large { font-size: 3.2rem; font-weight: bold; line-height: 1; margin-bottom: 5px;}
 .logo-large span { color: var(--primary); }
 .subtitle { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px; }
 .hero-text { font-size: 0.95rem; color: #475569; margin-bottom: 30px; line-height: 1.5; }
 
-/* Bloco 2: Informações */
 .info-row { display: flex; flex-direction: column; gap: 20px; }
 .info-item { display: flex; align-items: flex-start; gap: 15px; }
 .info-icon { font-size: 1.5rem; }
 .info-item strong { display: block; font-size: 0.9rem; color: var(--secondary); margin-bottom: 2px; }
 .info-item p { font-size: 0.8rem; color: #64748B; line-height: 1.4; }
 
-/* Bloco 3: Desenvolvedora */
 .dev-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
 
 .dev-avatar-img { 
@@ -73,14 +65,11 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 
 .dev-bio-clean { font-size: 0.85rem; color: #475569; line-height: 1.5; margin-bottom: 20px; }
 
-/* Botões Sociais */
+
 .social-links { display: flex; gap: 10px; flex-wrap: wrap; }
 .social-btn { text-decoration: none; font-size: 0.75rem; font-weight: 600; color: var(--secondary); background: #F8FAFC; border: 1px solid var(--border); padding: 8px 16px; border-radius: 50px; transition: 0.2s all; }
 .social-btn:hover { background: var(--primary); color: #FFF; border-color: var(--primary); }
 
-/* =========================================================
-   ÁREA DO JOGO E COMPONENTES
-   ========================================================= */
 .grid-images { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
 
 .img-box { 
@@ -114,10 +103,8 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 .btn-primary:hover { transform: translateY(-2px); background: #152844; }
 .btn-next { background: var(--secondary); color: white; border: none; padding: 14px 35px; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; margin-top: 20px; }
 
-/* RESULTADOS */
 .score-circle { width: 140px; height: 140px; border-radius: 50%; border: 8px solid var(--primary); margin: 20px auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: white; box-shadow: 0 10px 20px rgba(168, 218, 220, 0.2); }
 
-/* --- TAMANHO DA FONTE AJUSTADO AQUI --- */
 .score-circle span { 
     font-size: 1.4rem; 
     font-weight: bold; 
@@ -137,7 +124,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
 .animate-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- SESSÃO E-BOOK --- */
 .ebook-promo {
     text-align: center;
     margin: 30px 0;
@@ -192,9 +178,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     transform: translateY(-2px);
 }
 
-/* =========================================================
-   RESPONSIVIDADE CELULAR
-   ========================================================= */
+
 @media (max-width: 650px) { 
     .container { padding: 15px; }
     
@@ -209,7 +193,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     .info-item strong { font-size: 0.85rem; }
     .info-item p { font-size: 0.75rem; }
 
-    /* Desenvolvedora */
     .dev-header { gap: 12px; margin-bottom: 12px; }
     .dev-avatar-img { width: 50px !important; height: 50px !important; }
     .dev-label { font-size: 0.55rem; }
@@ -218,7 +201,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     .dev-bio-clean { font-size: 0.8rem; margin-bottom: 15px; }
     .social-btn { padding: 6px 12px; font-size: 0.7rem; }
 
-    /* Área do Jogo */
     .grid-images { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
     .img-box { height: 140px; border-radius: 16px; }
     .tag { top: 8px; left: 8px; font-size: 0.45rem; padding: 3px 6px; }
@@ -226,12 +208,10 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--s
     .pills-grid { gap: 8px; margin: 15px 0; }
     .pill { padding: 10px 12px; font-size: 0.8rem; width: 48%; text-align: center; } 
 
-    /* Tela Final */
     .guide-container { grid-template-columns: 1fr; gap: 15px; margin-top: 20px;} 
     .info-step { padding: 20px; border-radius: 20px; }
     .btn-primary { padding: 18px; font-size: 0.95rem; }
 
-    /* E-book Mobile */
     .ebook-promo { padding: 20px; margin: 20px 0; }
     .qr-code { width: 110px; height: 110px; }
     .btn-secondary { font-size: 0.8rem; padding: 10px 20px; }
