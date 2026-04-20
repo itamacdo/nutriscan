@@ -1,19 +1,68 @@
 const desafios = [
-    { prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", titulo: "YoPRO: Sabor Doce", missao: "Qual ingrediente é usado para deixar a bebida doce sem usar o açúcar comum?", alvos: ["Adoçante (Sucralose)"], opcoes: ["Mel", "Adoçante (Sucralose)", "Açúcar Mascavo", "Caldo de Cana"], explica: "Eles usam adoçantes artificiais, como a Sucralose, para dar sabor doce sem adicionar calorias, mas o gosto pode ser mais artificial." },
-    
-    { prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", titulo: "YoPRO: Textura", missao: "O que eles colocam na bebida para ela não ficar rala como água?", alvos: ["Goma / Espessante"], opcoes: ["Farinha de trigo", "Goma / Espessante", "Amido de milho", "Gema de ovo"], explica: "Usam espessantes (como a Carragena) para imitar a cremosidade de uma vitamina natural." },
-    
-    { prod: "Barra de Cereal Trio", frente: "assets/trio-frente.png", rotulo: "assets/trio-rotulo.png", titulo: "Trio: O Falso Saudável", missao: "Na lista de ingredientes, qual nome difícil é apenas um 'açúcar disfarçado'?", alvos: ["Maltodextrina"], opcoes: ["Aveia em flocos", "Maltodextrina", "Fibra alimentar", "Sódio"], explica: "A Maltodextrina vira açúcar rapidinho no seu sangue, dando fome logo depois de comer a barra." },
-    
-    { prod: "Barra de Cereal Trio", frente: "assets/trio-frente.png", rotulo: "assets/trio-rotulo.png", titulo: "Trio: Sal no Doce?", missao: "Até em doces como essa barra tem sal (sódio). O excesso disso faz mal para quê?", alvos: ["Aumenta a Pressão"], opcoes: ["Dá espinhas", "Aumenta a Pressão", "Causa cáries", "Enfraquece os ossos"], explica: "A indústria usa sódio para conservar e realçar o sabor até nos doces. Com o tempo, isso pode causar pressão alta." },
-    
-    { prod: "Whey Max Titanium", frente: "assets/whey-frente.png", rotulo: "assets/whey-rotulo.png", titulo: "Whey: Objetivo", missao: "As pessoas compram esse pó famoso nas academias principalmente para ingerir o quê?", alvos: ["Proteína"], opcoes: ["Gorduras boas", "Proteína", "Vitamina C", "Cálcio"], explica: "O foco do Whey é entregar uma grande quantidade de proteína de forma rápida para ajudar na força e nos músculos." },
-    
-    { prod: "Whey Max Titanium", frente: "assets/whey-frente.png", rotulo: "assets/whey-rotulo.png", titulo: "Whey: De onde vem?", missao: "De onde a fábrica tira essa proteína para fazer o pó?", alvos: ["Do soro do leite"], opcoes: ["Da carne de boi", "Do soro do leite", "Do grão de soja", "Do trigo"], explica: "Whey Protein nada mais é do que a proteína que sobra no soro do leite líquido quando as fábricas vão fazer queijo." },
-    
-    { prod: "Iogurte Grego Vigor", frente: "assets/grego-frente.png", rotulo: "assets/grego-rotulo.png", titulo: "Grego: Cremosidade", missao: "Por que esse iogurte grego de prateleira é tão cremoso parecendo sobremesa?", alvos: ["Mais creme e gordura"], opcoes: ["Porque é muito batido", "Mais creme e gordura", "Vem congelado", "Tem muita água"], explica: "Para ficar grosso e gostoso, eles costumam adicionar creme de leite e gordura, o que aumenta bastante as calorias." },
-    
-    { prod: "Iogurte Grego Vigor", frente: "assets/grego-frente.png", rotulo: "assets/grego-rotulo.png", titulo: "Grego: O Perigo Doce", missao: "Quando você lê '16g de Carboidratos' na tabela desse iogurte, você está comendo o quê?", alvos: ["Muito açúcar misturado"], opcoes: ["Muita fibra saudável", "Muito açúcar misturado", "Pedaços de frutas", "Muitas vitaminas"], explica: "A maior parte desse número vem de puro açúcar jogado na mistura para deixar o iogurte com sabor de doce." }
+    { 
+        prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", 
+        titulo: "Bebida Pronta: Doce Mágico?", 
+        missao: "O que eles colocam para a bebida ficar doce sem usar açúcar de verdade?", 
+        alvos: ["Adoçante artificial"], 
+        opcoes: ["Mel de abelha", "Adoçante artificial", "Açúcar mascavo", "Caldo de cana"], 
+        explica: "Eles usam adoçante para enganar o paladar e não colocar calorias, mas o gosto fica mais artificial." 
+    },
+    { 
+        prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", 
+        titulo: "Bebida Pronta: Grossinha", 
+        missao: "Por que essa bebida é tão cremosa e não é rala igual água?", 
+        alvos: ["Eles misturam gomas"], 
+        opcoes: ["Muito leite", "Eles misturam gomas", "Amido de milho", "Gema de ovo"], 
+        explica: "A fábrica usa um pozinho chamado 'goma' para engrossar a bebida, imitando uma vitamina de verdade." 
+    },
+    { 
+        prod: "Barra de Cereal Trio", frente: "assets/trio-frente.png", rotulo: "assets/trio-rotulo.png", 
+        titulo: "Barrinha: O Falso Saudável", 
+        missao: "Qual palavra esquisita no rótulo é só um 'açúcar escondido'?", 
+        alvos: ["Maltodextrina"], 
+        opcoes: ["Aveia", "Maltodextrina", "Fibras", "Castanhas"], 
+        explica: "Maltodextrina é um pó que vira açúcar puro na sua barriga. Dá fome rapidinho logo depois de comer!" 
+    },
+    { 
+        prod: "Barra de Cereal Trio", frente: "assets/trio-frente.png", rotulo: "assets/trio-rotulo.png", 
+        titulo: "Barrinha: Sal no Doce?", 
+        missao: "Acredite, tem sal (sódio) nessa barrinha doce! O que o excesso de sal faz?", 
+        alvos: ["Sobe a pressão"], 
+        opcoes: ["Dá dor de cabeça", "Sobe a pressão", "Causa cáries", "Enfraquece os ossos"], 
+        explica: "A fábrica bota sal para o doce durar mais na prateleira. Mas muito sal faz mal pro coração e sobe a pressão." 
+    },
+    { 
+        prod: "Whey Max Titanium", frente: "assets/whey-frente.png", rotulo: "assets/whey-rotulo.png", 
+        titulo: "Pó de Academia: Para quê?", 
+        missao: "O que tem nesse pó famoso que ajuda a criar e consertar músculos?", 
+        alvos: ["Muita Proteína"], 
+        opcoes: ["Gordura boa", "Muita Proteína", "Vitamina C", "Cálcio dos ossos"], 
+        explica: "A proteína é como se fosse o 'tijolinho' que o corpo usa para construir os músculos depois de um esforço físico." 
+    },
+    { 
+        prod: "Whey Max Titanium", frente: "assets/whey-frente.png", rotulo: "assets/whey-rotulo.png", 
+        titulo: "Pó de Academia: De onde vem?", 
+        missao: "Você sabia que esse pó vem de algo muito comum na cozinha? De onde é?", 
+        alvos: ["Do soro do leite"], 
+        opcoes: ["Da carne de boi", "Do soro do leite", "Da planta da soja", "Da farinha de trigo"], 
+        explica: "'Whey' é só uma palavra chique em inglês para 'Soro do Leite'. É aquela aguinha que sobra quando vão fazer queijo!" 
+    },
+    { 
+        prod: "Iogurte Grego Vigor", frente: "assets/grego-frente.png", rotulo: "assets/grego-rotulo.png", 
+        titulo: "Iogurte Grego: A Sobremesa", 
+        missao: "O que deixa esse iogurte tão cremoso e pesado, parecendo uma sobremesa?", 
+        alvos: ["Creme de leite adicionado"], 
+        opcoes: ["Foi muito batido", "Creme de leite adicionado", "Foi congelado", "Tem muita água"], 
+        explica: "Para ficar tão gostoso, a fábrica mistura creme de leite e mais gordura. Fica uma delícia, mas engorda mais!" 
+    },
+    { 
+        prod: "Iogurte Grego Vigor", frente: "assets/grego-frente.png", rotulo: "assets/grego-rotulo.png", 
+        titulo: "Iogurte Grego: O Perigo", 
+        missao: "A tabela diz que ele tem muito 'Carboidrato'. O que isso significa nesse caso?", 
+        alvos: ["Que é cheio de açúcar"], 
+        opcoes: ["Que tem muita fibra", "Que é cheio de açúcar", "Que tem pedaços de fruta", "Que dá saúde"], 
+        explica: "Em produtos assim do mercado, a palavra bonita 'carboidrato' quase sempre esconde colheradas de açúcar branco escondidas." 
+    }
 ];
 
 let index = 0, score = 0, respondido = false;
@@ -31,24 +80,43 @@ function shuffleArray(array) {
     return array;
 }
 
-document.getElementById('btn-start').onclick = () => { homeScreen.classList.add('hidden'); gameArena.classList.remove('hidden'); hud.classList.remove('hidden'); carregarDesafio(); };
-document.getElementById('btn-prev').onclick = () => { if(index > 0) { index--; carregarDesafio(); } };
-document.getElementById('btn-next-skip').onclick = () => { if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } };
-document.getElementById('btn-home').onclick = () => { location.reload(); };
+document.getElementById('btn-start').onclick = () => { 
+    homeScreen.classList.add('hidden'); 
+    gameArena.classList.remove('hidden'); 
+    hud.classList.remove('hidden'); 
+    carregarDesafio(); 
+};
 
-btnNext.onclick = () => { if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } };
+document.getElementById('btn-prev').onclick = () => { 
+    if(index > 0) { index--; carregarDesafio(); } 
+};
+
+document.getElementById('btn-next-skip').onclick = () => { 
+    if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } 
+};
+
+document.getElementById('btn-home').onclick = () => { 
+    location.reload(); 
+};
+
+btnNext.onclick = () => { 
+    if(index < 7) { index++; carregarDesafio(); } else { finalizar(); } 
+};
 
 function carregarDesafio() {
     respondido = false; 
     btnNext.classList.add('hidden');
     const d = desafios[index];
+    
     document.getElementById('current-phase-num').textContent = index + 1;
     document.getElementById('phase-title').textContent = "Escaneando";
-    document.getElementById('phase-instruction').textContent = "Identificando dados da embalagem...";
+    document.getElementById('phase-instruction').textContent = "Procurando as pistas na embalagem...";
     grid.innerHTML = ''; 
-    feedbackBox.textContent = "Iniciando leitura óptica..."; 
+    feedbackBox.textContent = "Olhando o rótulo com atenção..."; 
+    
     document.getElementById('img-frente').src = d.frente; 
     document.getElementById('img-rotulo').src = d.rotulo;
+    
     laser.classList.add('scanning');
     
     setTimeout(() => { 
@@ -97,7 +165,7 @@ function finalizar() {
     document.getElementById('final-score-val').textContent = `${score}/${maxScore}`;
     
     const rankMsg = document.getElementById('rank-message');
-    if (score >= 800) rankMsg.textContent = "Incrível! Você tem um olhar clínico para rótulos.";
-    else if (score >= 500) rankMsg.textContent = "Muito bem! Você já consegue fazer escolhas mais conscientes.";
-    else rankMsg.textContent = "Continue praticando. Ler rótulos é um hábito que se constrói!";
+    if (score >= 800) rankMsg.textContent = "Fantástico! Ninguém mais te engana no supermercado.";
+    else if (score >= 500) rankMsg.textContent = "Muito bem! Você já está aprendendo a fugir das pegadinhas.";
+    else rankMsg.textContent = "É só o começo! Continue prestando atenção no que você come.";
 }
