@@ -161,4 +161,11 @@ function finalizar() {
     hud.classList.add('hidden'); 
     resultsScreen.classList.remove('hidden');
     
-    const maxScore = desafios.length * 100
+    const maxScore = desafios.length * 100;
+    document.getElementById('final-score-val').textContent = `${score}/${maxScore}`;
+    
+    const rankMsg = document.getElementById('rank-message');
+    if (score >= 800) rankMsg.textContent = "Excelente! Você está pronto para fazer compras muito melhores.";
+    else if (score >= 500) rankMsg.textContent = "Muito bem! Você já aprendeu a fugir das piores pegadinhas do mercado.";
+    else rankMsg.textContent = "Esse é só o começo! Continue treinando o olhar na hora das compras.";
+}
