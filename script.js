@@ -3,8 +3,8 @@ const desafios = [
         prod: "YoPRO Chocolate", frente: "assets/yopro-frente.png", rotulo: "assets/yopro-rotulo.png", 
         titulo: "Bebida Pronta: Doce Mágico?", 
         missao: "Se não tem açúcar normal, o que a fábrica coloca para a bebida ficar docinha?", 
-        alvos: ["Adoçante de laboratório"], 
-        opcoes: ["Mel de abelha", "Adoçante de laboratório", "Açúcar mascavo", "Caldo de cana"], 
+        alvos: ["Adoçante"], 
+        opcoes: ["Mel de abelha", "Adoçante", "Açúcar mascavo", "Caldo de cana"], 
         explica: "A fábrica usa adoçantes artificiais para o produto ficar doce sem somar calorias. O corpo sente o doce, mas o sabor fica artificial." 
     },
     { 
@@ -12,7 +12,7 @@ const desafios = [
         titulo: "Bebida Pronta: Cremosa", 
         missao: "Por que essa bebida de caixinha é tão grossinha e não é rala igual água?", 
         alvos: ["Eles colocam um pó que engrossa"], 
-        opcoes: ["Tem muito leite puro", "Eles colocam um pó que engrossa", "É feita com muitas frutas", "Batem com muito gelo"], 
+        opcoes: ["Tem muito leite", "Eles colocam um pó que engrossa", "É feita com muitas frutas", "Batem com muito gelo"], 
         explica: "Eles adicionam pós chamados espessantes (ou gomas) para a bebida imitar a textura de uma vitamina batida na hora." 
     },
     { 
@@ -42,9 +42,9 @@ const desafios = [
     { 
         prod: "Whey Max Titanium", frente: "assets/whey-frente.png", rotulo: "assets/whey-rotulo.png", 
         titulo: "Pó de Academia: Origem", 
-        missao: "Você sabia que a proteína desse pote vem de algo muito comum na cozinha? De onde é?", 
-        alvos: ["Da água do queijo (soro)"], 
-        opcoes: ["Da carne do boi", "Da água do queijo (soro)", "Da planta da soja", "Da farinha de trigo seca"], 
+        missao: "Você sabia que a proteína desse pote vem de algo muito comum? De onde é?", 
+        alvos: ["Soro do Leite"], 
+        opcoes: ["Da carne do boi", "Soro do Leite", "Da planta da soja", "Da farinha de trigo seca"], 
         explica: "Whey é só o nome em inglês para o 'soro do leite'. É a aguinha nutritiva que sobra na fábrica quando eles fazem o queijo." 
     },
     { 
